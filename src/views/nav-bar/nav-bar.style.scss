@@ -1,4 +1,4 @@
-.navbar {
+.navbar-view {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,8 +10,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1rem;
+      gap: 1.5rem;
       padding: 0.25rem 0;
+    }
+
+    .navbar-brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .dropdown {
@@ -34,6 +40,10 @@
 
       &:hover {
         color: rgba(var(--light), 1) !important;
+      }
+
+      &:after {
+        content: none;
       }
     }
   }

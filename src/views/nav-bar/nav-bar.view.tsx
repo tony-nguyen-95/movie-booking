@@ -4,11 +4,11 @@ import { INavBar } from './nav-bar.type';
 import './nav-bar.style.scss';
 import { DropdownItem } from '../../components';
 
-const prefixClassName = 'navbar';
+const prefixClassName = 'navbar-view';
 
 export const NavBar: React.FC<INavBar> = (props) => {
   return (
-    <div className={`${prefixClassName}`}>
+    <div className={prefixClassName}>
       <div className={`${prefixClassName}__navbar-left`}>
         <Navbar expand="lg">
           <Navbar.Brand href="/home">
@@ -20,23 +20,10 @@ export const NavBar: React.FC<INavBar> = (props) => {
             />
           </Navbar.Brand>
           <Navbar id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              {/* <NavDropdown
-                title="Dropdown"
-                id="collasible-nav-dropdown"
-                show={show}
-                onMouseEnter={() => showDropdown()}
-                onMouseLeave={() => hideDropdown()}
-              >
-                <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
-              </NavDropdown> */}
-              <DropdownItem />
-              <DropdownItem />
+            <Nav>
+              <DropdownItem title="Movies" />
+              <DropdownItem title="Cinemas" />
+              <DropdownItem title="People" />
             </Nav>
           </Navbar>
         </Navbar>
