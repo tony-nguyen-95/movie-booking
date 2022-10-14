@@ -1,0 +1,238 @@
+.book-cinema {
+  background-image: url('../../assets/backgroud-booking.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: linear-gradient(to top, rgba(var(--accountPurple), 0.9), rgba(var(--tmdbDarkBlue), 0.9));
+  }
+
+  &__header {
+    z-index: 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 2rem 1rem;
+    gap: 1rem;
+
+    h3 {
+      margin: 0;
+      color: rgb(var(--light));
+    }
+  }
+
+  &__main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    .row {
+      --bs-gutter-x: 0;
+      --bs-gutter-y: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: calc(-1 * var(--bs-gutter-y));
+      margin-right: 0;
+      margin-left: 0;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &__col-cinema,
+  &__col-location,
+  &__col-calender {
+    padding: 0;
+  }
+
+  &__list-cinema-wrapper,
+  &__list-location-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    border: 1px solid rgb(var(--light));
+    height: 400px;
+    overflow: auto;
+    border-right-width: 0px;
+  }
+
+  &__cinema-item {
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 60px;
+      height: 60px;
+      z-index: 1;
+    }
+
+    span {
+      z-index: 0;
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: rgb(var(--light));
+      border-radius: 50%;
+    }
+  }
+
+  &__location-item {
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+    color: #fff;
+
+    div {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      margin-left: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 35%;
+      bottom: 0%;
+      height: 2px;
+      background: rgb(var(--light));
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      bottom: 0%;
+      left: 0%;
+      height: 70%;
+      background: rgb(var(--light));
+    }
+  }
+
+  &__list-calender-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: 1px solid rgb(var(--light));
+    height: 400px;
+    overflow: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &__calender-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgb(var(--light));
+  }
+
+  &__calender-item-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    color: #fff;
+
+    img {
+      width: 50px;
+      height: 75px;
+      border-radius: 4px;
+      border: 1px solid #fff;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      h6 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  &__calender-item-main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    color: #fff;
+  }
+
+  &__calender-showtime {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__calender-showtime-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    flex-wrap: wrap;
+
+    button {
+      padding: 0.125rem 0.25rem;
+      border: 1px solid rgb(var(--light));
+      background-color: transparent;
+      border-radius: 4px;
+      color: #fff;
+
+      &:hover {
+        background-color: rgb(var(--light));
+        color: rgb(var(--tmdbDarkBlue));
+      }
+    }
+  }
+}

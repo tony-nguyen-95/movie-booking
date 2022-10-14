@@ -1,9 +1,9 @@
 export interface IDropdownItemProps {
   title: string;
-  subMenu?: ISubMenu;
+  subMenu?: ISubMenu[];
 }
 
 export interface ISubMenu {
-  title?: string;
+  subTitle?: string;
   link?: string;
 }

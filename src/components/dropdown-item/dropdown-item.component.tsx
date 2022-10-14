@@ -7,7 +7,7 @@ import { useSpring, animated } from 'react-spring';
 const prefixClassName = 'dropdown-item';
 
 export const DropdownItem: React.FC<IDropdownItemProps> = (props) => {
-  const { title } = props;
+  const { title, subMenu } = props;
 
   const [show, setShow] = useState(false);
 
@@ -33,9 +33,12 @@ export const DropdownItem: React.FC<IDropdownItemProps> = (props) => {
       onMouseLeave={() => setShow(false)}
       className={prefixClassName}
     >
-      <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-      <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-      <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+      {subMenu &&
+        subMenu.map((item, index) => (
+          <NavDropdown.Item key={index} href={item.link} eventKey={item.subTitle}>
+            {item.subTitle}
+          </NavDropdown.Item>
+        ))}
     </NavDropdown>
   );
 };

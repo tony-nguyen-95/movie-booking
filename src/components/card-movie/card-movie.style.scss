@@ -1,0 +1,75 @@
+.card-movie {
+  border: none !important;
+  width: 150px !important;
+  min-width: 150px !important;
+  background: transparent;
+  margin-top: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+
+  .card-img-top {
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    border-radius: var(--imageBorderRadius);
+    width: 100%;
+    min-height: calc(150px * 1.5);
+    height: calc(150px * 1.5);
+    background: #dbdbdb;
+    overflow: hidden;
+    max-height: calc(
+      (var(--maxPrimaryPageWidth) - 80px - 260px - (var(--discoverColumnPadding) * var(--numberOfDiscoverColumns))) /
+        var(--numberOfDiscoverColumns) * 1.5
+    );
+  }
+
+  &__circle-percent-wrapper {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 10px;
+  }
+
+  .CircularProgressbar .CircularProgressbar-background {
+    fill: #081c22;
+  }
+
+  div[data-test-id] {
+    p {
+      position: relative;
+      margin: 0;
+      color: rgba(var(--light), 1);
+      text-align: center;
+      padding: 0 0.4rem 0 0.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+
+      span {
+        position: absolute;
+        top: 15%;
+        right: 0;
+        font-size: 0.4rem;
+      }
+    }
+  }
+
+  .card-body {
+    position: relative;
+    gap: 0;
+    padding: 26px 10px 12px 10px;
+  }
+
+  .card-title {
+    font-weight: 700;
+    color: #000;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .card-text {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
