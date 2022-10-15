@@ -1,6 +1,32 @@
-.login {
+.register {
   &__content-wrapper {
     padding: 2rem 0;
+  }
+  &__pannel-wrapper {
+    padding: 0 2rem !important;
+  }
+
+  .list-group-item.active {
+    z-index: 2;
+    color: rgb(var(--light));
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    font-weight: 600;
+    padding: 20px;
+    color: #fff;
+    font-size: 1.25rem;
+  }
+
+  .list-group-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+
+    i {
+      padding-top: 0.25rem;
+    }
   }
 
   &__form-wrapper {
@@ -34,5 +60,16 @@
 
   &__form-group {
     width: 100%;
+  }
+
+  &__form-actions-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+
+    a {
+      color: var(--secondary);
+    }
   }
 }

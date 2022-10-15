@@ -22,7 +22,7 @@ export const Login: React.FC<ILoginProps> = (props) => {
           <p>If you signed up but didn&apos;t get your verification email, click here to have it resent.</p>
         </div>
         <Form className={`${prefixClassName}__form-wrapper`}>
-          <Form.Group controlId="formLogin" className={`${prefixClassName}__form-group`}>
+          <Form.Group controlId="formUsername" className={`${prefixClassName}__form-group`}>
             <Form.Label>Username</Form.Label>
             <Form.Control type="text" placeholder="Enter your username" />
           </Form.Group>
