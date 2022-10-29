@@ -40,7 +40,6 @@ input:focus {
   --secondary: #49b4e4;
 
   --bs-blue: #0a243e !important;
-
 }
 
 .btn-primary {
@@ -69,5 +68,5 @@ input:focus {
 ::-webkit-scrollbar-thumb {
   background-color: rgba(var(--scrollerGrey), 1);
   border-radius: 20px;
-  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }

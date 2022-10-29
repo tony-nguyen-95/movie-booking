@@ -1,0 +1,161 @@
+.booking {
+  &__main-wrapper {
+    padding: 2rem 0 !important;
+
+    h4 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__annotation-wrapper {
+    display: flex !important;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-direction: column;
+
+    h5 {
+      margin: 0;
+    }
+  }
+
+  &__annotation-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+
+    div {
+      padding: 0.25rem 1rem;
+      color: #fff;
+      border: 1px solid var(--secondary);
+      border-radius: 4px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__annotation-item:nth-child(2) {
+    div {
+      background: var(--secondary);
+    }
+  }
+
+  &__annotation-item:nth-child(3) {
+    div {
+      background: var(--primary);
+    }
+  }
+
+  &__annotation-item:nth-child(4) {
+    div {
+      background: none;
+      color: var(--primary);
+    }
+  }
+
+  &__table-selection {
+    text-align: right;
+    padding-right: 2rem;
+
+    tr {
+      td:last-child {
+        text-align: center;
+      }
+
+      button {
+        padding: 0 0.6rem;
+        border-radius: 4px;
+        background: none;
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      i {
+        font-size: 0.8rem;
+      }
+    }
+
+    tbody {
+      tr:last-child {
+        background: var(--primary);
+
+        td {
+          color: #fff;
+        }
+
+        button {
+          color: #fff;
+          border-color: #fff;
+        }
+      }
+    }
+  }
+
+  &__booking-button {
+    width: 100%;
+  }
+
+  &__room-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
+    flex-direction: column;
+  }
+
+  &__screen {
+    width: 90%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 20px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__seats-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-direction: column;
+    left: -4.2%;
+    position: relative;
+    width: 80%;
+  }
+
+  &__seats-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    width: 100%;
+  }
+
+  &__seat-sign {
+    padding: 0.25rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    color: var(--primary);
+  }
+
+  &__seat {
+    padding: 0.25rem 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    background: none;
+    color: var(--primary);
+  }
+}

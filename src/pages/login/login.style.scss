@@ -20,6 +20,11 @@
     }
   }
 
+  &__form-control-error:focus {
+    border-color: red !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25) !important;
+  }
+
   .form-control:focus {
     color: var(--primary);
     background-color: #fff;
@@ -34,5 +39,11 @@
 
   &__form-group {
     width: 100%;
+  }
+
+  &__form-error {
+    padding: 0.5rem 0 0 0;
+    margin: 0 !important;
+    color: red;
   }
 }

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Nav, Navbar, Container } from 'react-bootstrap';
 import { INavBar } from './nav-bar.type';
 import './nav-bar.style.scss';
 import { DropdownItem } from '../../components';
+import { CoreAuthenticationStore } from '../../stores';
+import { observer } from 'mobx-react';
 
 const prefixClassName = 'navbar-view';
 
-export const NavBar: React.FC<INavBar> = (props) => {
+export const NavBar: React.FC<INavBar> = observer((props) => {
+  const isLogin: boolean = useMemo(() => CoreAuthenticationStore.isLoginSelector(), []);
+
   return (
     <div className={prefixClassName}>
       <Container>
@@ -44,18 +48,20 @@ export const NavBar: React.FC<INavBar> = (props) => {
           </Navbar>
         </div>
         <div className={`${prefixClassName}__navbar-right`}>
-          {true ? (
+          {!isLogin ? (
             <Navbar>
               <Nav className="me-auto">
-                <Nav.Link href="#">Login</Nav.Link>
-                <Nav.Link href="#">Register</Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/register">Register</Nav.Link>
               </Nav>
             </Navbar>
           ) : (
-            <div>Welcome, Huy</div>
+            <div style={{ color: 'white' }} onClick={() => CoreAuthenticationStore.logOutAction()}>
+              Welcome, Huy
+            </div>
           )}
         </div>
       </Container>
     </div>
   );
-};
+});

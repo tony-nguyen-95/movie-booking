@@ -5,9 +5,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 Install package:
+
 ### `yarn`
 
 If you want create new component/view/page:
+
 ```
 yarn generate "{component/view/page}" "{componentName}" "{componentPrefixName}"
 ```
