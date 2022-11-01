@@ -1,4 +1,3 @@
-// import { setApiAccessToken } from '../../apis';
 import './orchestrator';
 import * as CoreAuthenticationStore from './export';
 import { setApiAccessToken } from '../../apis';

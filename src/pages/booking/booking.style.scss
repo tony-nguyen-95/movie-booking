@@ -102,7 +102,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 3rem;
     flex-direction: column;
   }
 
@@ -120,6 +119,7 @@
     font-size: 1.25rem;
     letter-spacing: 1rem;
     text-transform: uppercase;
+    margin-bottom: 3rem;
   }
 
   &__seats-wrapper {
@@ -128,7 +128,7 @@
     align-items: center;
     gap: 0.5rem;
     flex-direction: column;
-    left: -4.2%;
+    left: -1.2%;
     position: relative;
     width: 80%;
   }
@@ -157,5 +157,23 @@
     border-radius: 4px;
     background: none;
     color: var(--primary);
+    cursor: pointer;
+  }
+
+  &__seat-booked {
+    padding: 0.25rem 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    background: var(--secondary);
+    color: #fff;
+  }
+
+  &__seat-selected {
+    padding: 0.25rem 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
   }
 }
