@@ -1,25 +1,37 @@
 import { orchestrator } from 'satcheljs';
 import { signinAPI } from '../../../apis';
 import { signinAction, updateAccessTokenAction } from '../action';
+import { updateErrorSignin, updateLoadingSignin } from '../mutator-action';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 orchestrator(signinAction, async (actionMessage: { username: string; password: string }) => {
   const { username, password } = actionMessage;
 
-  // CoreLoadingStore.updateLoadingAction(true);
+  updateLoadingSignin(true);
 
   try {
     const { data } = await signinAPI(username, password);
 
-    await updateAccessTokenAction(data.accessToken);
-  } catch (error) {
-    // 400 bad resquest ko dung dinh dang
-    // 401 ten dang nhap sai hoac mat khau sai
-    if (error === 1) {
-      console.log('check');
-    }
+    await withReactContent(Swal).fire({
+      position: 'top-end',
+      icon: 'success',
+      title: '<h5 style="font-size: 24px">Sign in successfully</h5>',
+      width: 300,
+      iconColor: 'var(--secondary)',
+      color: 'var(--secondary)',
+      showConfirmButton: false,
+      timer: 1000,
+      iconHtml: `<i class="fa-solid fa-check" style="font-size: 32px"></i>`,
+    });
 
-    // CommonMessageStore.updateErrorAction(error);
+    updateAccessTokenAction(data.accessToken);
+  } catch (error) {
+    if (error === 1) {
+      return updateErrorSignin('The Username or Password is incorrect, please try again!');
+    }
+    updateErrorSignin('Something goes wrong!');
   } finally {
-    // CoreLoadingStore.updateLoadingAction(false);
+    updateLoadingSignin(false);
   }
 });

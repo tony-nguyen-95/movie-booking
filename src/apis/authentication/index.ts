@@ -1,2 +1,2 @@
 export * from './signin.api';
-// export * from './register.api';
+export * from './signup.api';

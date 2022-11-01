@@ -11,9 +11,7 @@ orchestrator(fetchUserProfileAction, async () => {
   try {
     const profile = await fetchUserProfileApi();
 
-    await console.log(profile);
-
-    await updateProfileAction(profile);
+    updateProfileAction(profile);
   } catch (error) {
     // updateFetchProfileError(error);
   } finally {

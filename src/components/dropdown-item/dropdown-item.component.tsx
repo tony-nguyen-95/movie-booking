@@ -34,11 +34,24 @@ export const DropdownItem: React.FC<IDropdownItemProps> = (props) => {
       className={prefixClassName}
     >
       {subMenu &&
-        subMenu.map((item, index) => (
-          <NavDropdown.Item key={index} href={item.link} eventKey={item.subTitle}>
-            {item.subTitle}
-          </NavDropdown.Item>
-        ))}
+        subMenu.map((item, index) =>
+          item.isText ? (
+            <NavDropdown.ItemText key={item.subTitle}>{item.subTitle}</NavDropdown.ItemText>
+          ) : (
+            <NavDropdown.Item
+              key={item.subTitle}
+              href={item.link}
+              eventKey={item.subTitle}
+              onClick={() => {
+                if (item.onAciton) {
+                  return item.onAciton();
+                }
+              }}
+            >
+              {item.subTitle}
+            </NavDropdown.Item>
+          ),
+        )}
     </NavDropdown>
   );
 };

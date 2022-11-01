@@ -9,7 +9,7 @@ import * as yup from 'yup';
 import { CoreAuthenticationStore } from '../../stores';
 import { useHistory } from 'react-router-dom';
 import { observer } from 'mobx-react';
-import { HashLoader } from 'react-spinners';
+import { Loading } from '../../components';
 
 const prefixClassName = 'login';
 
@@ -40,6 +40,10 @@ export const Login: React.FC<ILoginProps> = observer((props) => {
 
   const isLogin = CoreAuthenticationStore.isLoginSelector();
 
+  const signinError = CoreAuthenticationStore.signinErrorSelector();
+
+  const loadingSignin = CoreAuthenticationStore.loadingSigninSelector();
+
   const history = useHistory();
 
   const onSubmit = (data: ILoginForm) => CoreAuthenticationStore.signinAction(data.username, data.password);
@@ -54,7 +58,7 @@ export const Login: React.FC<ILoginProps> = observer((props) => {
 
   useEffect(() => {
     if (isLogin) {
-      return history.push('/home');
+      history.push('/home');
     }
   }, [history, isLogin]);
 
@@ -63,6 +67,8 @@ export const Login: React.FC<ILoginProps> = observer((props) => {
       <NavBar />
 
       <Container className={`${prefixClassName}__content-wrapper`}>
+        {loadingSignin && <Loading />}
+
         <h4>Login to your account</h4>
         <div className={`${prefixClassName}__content-instructor`}>
           <p>
@@ -111,14 +117,11 @@ export const Login: React.FC<ILoginProps> = observer((props) => {
             />
           </Form.Group>
 
+          {signinError && <h6 style={{ color: 'red' }}>{signinError}</h6>}
           <Button variant="primary" type="submit">
             Login
           </Button>
         </Form>
-
-        <div>
-          <HashLoader color="#49b4e4" size={80} />
-        </div>
       </Container>
 
       <Footer />

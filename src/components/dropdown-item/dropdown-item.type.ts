@@ -6,4 +6,6 @@ export interface IDropdownItemProps {
 export interface ISubMenu {
   subTitle?: string;
   link?: string;
+  isText?: boolean;
+  onAciton?: () => void;
 }
