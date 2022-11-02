@@ -1,36 +1,67 @@
-import React from 'react';
+import { observer } from 'mobx-react';
+import React, { useMemo } from 'react';
 import { Card } from 'react-bootstrap';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import { useHistory } from 'react-router-dom';
+import { CoreMovieStore } from '../../stores';
+// import { convertFormatDate } from '../../stores/store-showtime/orchestrator/fetch-showtime-by-movie-and-cinema.orchestrator';
+import { PlayButton } from '../play-button';
 import './card-movie.style.scss';
 import { ICardMovieProps } from './card-movie.type';
 
 const prefixClassName = 'card-movie';
 
-export const CardMovie: React.FC<ICardMovieProps> = (props) => {
-  const { thumbnail, title, dateRelease, scoreInPercent } = props;
+export const CardMovie: React.FC<ICardMovieProps> = observer((props) => {
+  const { movie } = props;
+
+  const { id, verticalBanner, title, releaseDate, scorePercent } = movie;
+
+  const history = useHistory();
+
+  const colorScore: { path: string; trail: string } = useMemo(() => {
+    if (scorePercent && scorePercent < 40) {
+      return { path: 'rgba(217, 59, 99, 1)', trail: 'rgba(217, 59, 99, 0.2)' };
+    }
+    if (scorePercent && scorePercent < 70) {
+      return { path: 'rgba(253, 193, 112, 1)', trail: 'rgba(253, 193, 112, 0.2)' };
+    }
+    return { path: 'rgba(76,209,122, 1)', trail: 'rgba(76,209,122, 0.2)' };
+  }, [scorePercent]);
+
   return (
     <Card className={prefixClassName}>
-      <Card.Img variant="top" src={thumbnail} />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{dateRelease}</Card.Text>
+      <div onClick={() => CoreMovieStore.updateTrailerMovieAction(movie)} style={{ zIndex: 1000 }}>
+        <PlayButton />
+      </div>
+
+      <Card.Img
+        variant="top"
+        src={`http://localhost:5000/${verticalBanner}`}
+        onClick={() => history.push(`/detail/${id}`)}
+      />
+      <Card.Body onClick={() => history.push(`/detail/${id}`)} style={{ cursor: 'pointer' }}>
+        <Card.Title style={{ marginBottom: '0.5rem' }}>{title}</Card.Title>
+
+        <Card.Text style={{ fontStyle: 'italic' }}>Release:</Card.Text>
+        {/* <Card.Text>{convertFormatDate(releaseDate || '').formattedDate}</Card.Text> */}
+
         <div className={`${prefixClassName}__circle-percent-wrapper`}>
           <CircularProgressbarWithChildren
-            value={scoreInPercent}
+            value={scorePercent || 0}
             strokeWidth={5}
             background
             backgroundPadding={5}
             styles={{
               path: {
-                stroke: `rgba(76,209,122)`,
+                stroke: colorScore.path,
               },
               trail: {
-                stroke: 'rgba(76,209,122, 0.2)',
+                stroke: colorScore.trail,
               },
             }}
           >
             <p>
-              {scoreInPercent}
+              {scorePercent}
               <span>%</span>
             </p>
           </CircularProgressbarWithChildren>
@@ -38,4 +69,4 @@ export const CardMovie: React.FC<ICardMovieProps> = (props) => {
       </Card.Body>
     </Card>
   );
-};
+});

@@ -1,7 +1,7 @@
 .detail {
   &__content-wrapper {
     position: relative;
-    background-image: url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg');
+    // background-image: url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,6 +32,11 @@
 
     img {
       border-radius: 8px;
+    }
+
+    #play {
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%) scale(1, 1);
     }
   }
 

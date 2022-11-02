@@ -12,7 +12,7 @@ const App = () => {
 
         <Route exact path="/register" render={(props) => <Register {...props} />} />
 
-        <Route exact path="/detail" render={(props) => <Detail {...props} />} />
+        <Route exact path="/detail/:id" render={(props) => <Detail {...props} />} />
 
         <Route exact path="/booking" render={(props) => <Booking {...props} />} />
 

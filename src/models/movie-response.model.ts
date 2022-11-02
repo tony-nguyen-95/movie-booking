@@ -3,7 +3,7 @@ export interface IMovieResponse {
   title?: string;
   trailerUrl?: string;
   verticalBanner?: string;
-  releaseDate?: Date;
+  releaseDate?: string;
   storyAuthor?: string;
   director?: string;
   description?: string;

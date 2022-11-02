@@ -4,6 +4,9 @@ import { signinAction, updateAccessTokenAction } from '../action';
 import { updateErrorSignin, updateLoadingSignin } from '../mutator-action';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { CoreMovieStore } from '../../store-movie';
+import { CoreCinemaStore } from '../../store-cinema';
+import { CoreShowtimeStore } from '../../store-showtime';
 
 orchestrator(signinAction, async (actionMessage: { username: string; password: string }) => {
   const { username, password } = actionMessage;
@@ -24,6 +27,10 @@ orchestrator(signinAction, async (actionMessage: { username: string; password: s
       timer: 1000,
       iconHtml: `<i class="fa-solid fa-check" style="font-size: 32px"></i>`,
     });
+
+    CoreMovieStore.updateMoviesByCinemaIdAction(undefined);
+    CoreCinemaStore.updateCinemasByMovieIdAction(undefined);
+    CoreShowtimeStore.updateShowtimeListByMovieAndCinemaAction(undefined);
 
     updateAccessTokenAction(data.accessToken);
   } catch (error) {

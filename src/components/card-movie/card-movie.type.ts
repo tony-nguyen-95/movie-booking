@@ -1,6 +1,5 @@
+import { IMovieResponse } from '../../models';
+
 export interface ICardMovieProps {
-  thumbnail: string;
-  title: string;
-  dateRelease: string;
-  scoreInPercent: number;
+  movie: IMovieResponse;
 }

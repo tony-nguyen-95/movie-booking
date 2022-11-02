@@ -139,7 +139,7 @@ export const SearchBar: React.FC<ISearchBarProps> = observer((props) => {
           <Col>
             <Form.Select aria-label="Datetime option" defaultValue="" ref={showtimeSelect}>
               <option value="" disabled>
-                Select showtime
+                Select showtime...
               </option>
               {showtimeByMovieAndCinema &&
                 showtimeByMovieAndCinema.map((item) => (

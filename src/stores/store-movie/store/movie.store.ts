@@ -4,6 +4,8 @@ import { IMovieStore } from './movie.type';
 const initStore: IMovieStore = {
   movieList: undefined,
   moviesByCinemaId: undefined,
+  loadingMovie: false,
+  trailerMovie: undefined,
 };
 
 export const getStore = createStore('CoreMovieStore', initStore);
