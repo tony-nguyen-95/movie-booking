@@ -1,3 +1,5 @@
+import { IShowtimeReponse } from './showtime-response.model';
+
 export interface IMovieResponse {
   id?: number;
   title?: string;
@@ -10,4 +12,5 @@ export interface IMovieResponse {
   scorePercent?: number;
   category?: string;
   updateDate?: Date;
+  showtimes?: IShowtimeReponse[];
 }

@@ -6,6 +6,7 @@ const initStore: IMovieStore = {
   moviesByCinemaId: undefined,
   loadingMovie: false,
   trailerMovie: undefined,
+  moviesWithShowtimes: undefined,
 };
 
 export const getStore = createStore('CoreMovieStore', initStore);

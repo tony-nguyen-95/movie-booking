@@ -6,12 +6,12 @@ import { updateShowtimeIdAction, updateTicketsByShowtimeIdAction } from '../muta
 orchestrator(fetchTicketsByShowtimeIdAction, async (actionMessage: { showtimeId: number }) => {
   const { showtimeId } = actionMessage;
 
+  updateShowtimeIdAction(showtimeId);
+
   try {
     const { data: showtime } = await getTicketsShowtimeIdAPI(showtimeId);
 
     updateTicketsByShowtimeIdAction(showtime.seats);
-
-    updateShowtimeIdAction(showtime.id);
   } catch (error) {
     return error;
   }

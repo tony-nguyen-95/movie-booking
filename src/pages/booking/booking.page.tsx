@@ -25,6 +25,8 @@ export const Booking: React.FC<IBookingProps> = observer((props) => {
 
   const loadingBookTickets = CoreTicketStore.loadingBookTicketSelector();
 
+  const showtimeId = CoreTicketStore.showtimeIdSelector();
+
   const isLogin = CoreAuthenticationStore.isLoginSelector();
 
   const listSelectTicketId: string[] = useMemo(() => {
@@ -53,7 +55,7 @@ export const Booking: React.FC<IBookingProps> = observer((props) => {
   }, [listSelectTicketId]);
 
   useEffect(() => {
-    if (!isLogin || listTickets?.length === 0) {
+    if (!isLogin || listTickets?.length === 0 || !showtimeId) {
       return history.push('/home');
     }
   }, [history, isLogin, listTickets?.length]);

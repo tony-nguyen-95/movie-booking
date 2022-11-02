@@ -5,3 +5,4 @@ export * from './cinema-response.model';
 export * from './showtime-response.model';
 export * from './showtime.model';
 export * from './ticket.model';
+export * from './cineplex-response.model';

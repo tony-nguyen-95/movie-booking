@@ -1,17 +1,16 @@
-import { observer } from 'mobx-react';
 import React, { useMemo } from 'react';
 import { Card } from 'react-bootstrap';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import { useHistory } from 'react-router-dom';
 import { CoreMovieStore } from '../../stores';
-// import { convertFormatDate } from '../../stores/store-showtime/orchestrator/fetch-showtime-by-movie-and-cinema.orchestrator';
+import { convertFormatDate } from '../../stores/store-showtime/orchestrator/fetch-showtime-by-movie-and-cinema.orchestrator';
 import { PlayButton } from '../play-button';
 import './card-movie.style.scss';
 import { ICardMovieProps } from './card-movie.type';
 
 const prefixClassName = 'card-movie';
 
-export const CardMovie: React.FC<ICardMovieProps> = observer((props) => {
+export const CardMovie: React.FC<ICardMovieProps> = (props) => {
   const { movie } = props;
 
   const { id, verticalBanner, title, releaseDate, scorePercent } = movie;
@@ -30,7 +29,7 @@ export const CardMovie: React.FC<ICardMovieProps> = observer((props) => {
 
   return (
     <Card className={prefixClassName}>
-      <div onClick={() => CoreMovieStore.updateTrailerMovieAction(movie)} style={{ zIndex: 1000 }}>
+      <div onClick={() => CoreMovieStore.updateTrailerMovieAction(movie)} style={{ zIndex: 500 }}>
         <PlayButton />
       </div>
 
@@ -43,7 +42,7 @@ export const CardMovie: React.FC<ICardMovieProps> = observer((props) => {
         <Card.Title style={{ marginBottom: '0.5rem' }}>{title}</Card.Title>
 
         <Card.Text style={{ fontStyle: 'italic' }}>Release:</Card.Text>
-        {/* <Card.Text>{convertFormatDate(releaseDate || '').formattedDate}</Card.Text> */}
+        <Card.Text>{convertFormatDate(releaseDate || '').formattedDate}</Card.Text>
 
         <div className={`${prefixClassName}__circle-percent-wrapper`}>
           <CircularProgressbarWithChildren
@@ -69,4 +68,4 @@ export const CardMovie: React.FC<ICardMovieProps> = observer((props) => {
       </Card.Body>
     </Card>
   );
-});
+};

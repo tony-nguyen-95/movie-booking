@@ -57,7 +57,7 @@
   &__list-location-wrapper {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     gap: 2rem;
     padding: 1rem;
@@ -79,6 +79,14 @@
       width: 60px;
       height: 60px;
       z-index: 1;
+      border-radius: 50%;
+    }
+  }
+
+  &__cinema-item-selected {
+    @extend .book-cinema__cinema-item;
+    img {
+      border: 0.5px solid var(--primary);
     }
 
     span {
@@ -118,28 +126,24 @@
     p {
       margin: 0;
     }
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      width: 35%;
-      bottom: 0%;
-      height: 2px;
-      background: rgb(var(--light));
-    }
+  &__location-item-selected {
+    @extend .book-cinema__location-item;
 
     &::before {
       content: '';
       position: absolute;
-      width: 2px;
-      bottom: 0%;
+      width: 4px;
+      bottom: 2%;
       left: 0%;
-      height: 70%;
+      height: 100%;
       background: rgb(var(--light));
     }
   }
 
   &__list-calender-wrapper {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;

@@ -6,3 +6,4 @@ export * from './movie';
 export * from './cinema';
 export * from './showtime';
 export * from './ticket';
+export * from './cineplex';

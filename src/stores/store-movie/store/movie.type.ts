@@ -5,4 +5,5 @@ export interface IMovieStore {
   moviesByCinemaId: IMovieResponse[] | undefined;
   loadingMovie: boolean;
   trailerMovie: IMovieResponse | undefined;
+  moviesWithShowtimes: IMovieResponse[] | undefined;
 }
