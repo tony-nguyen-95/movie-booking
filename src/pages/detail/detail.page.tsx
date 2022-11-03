@@ -4,6 +4,7 @@ import { Container, Image, Row, Col } from 'react-bootstrap';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import { useHistory } from 'react-router-dom';
 import { PlayButton, TrailerModal } from '../../components';
+import { DOMAIN } from '../../config';
 import { CoreMovieStore } from '../../stores';
 import { convertFormatDate } from '../../stores/store-showtime/orchestrator/fetch-showtime-by-movie-and-cinema.orchestrator';
 import { Footer, NavBar } from '../../views';
@@ -49,7 +50,7 @@ export const Detail: React.FC<IDetailProps> = observer((props) => {
               <PlayButton />
             </div>
 
-            <Image src={`http://localhost:5000/${detailMovie?.verticalBanner}`} width={300} height={450} />
+            <Image src={`${DOMAIN}${detailMovie?.verticalBanner}`} width={300} height={450} />
           </Col>
           <Col xs={9} className={`${prefixClassName}__content-info`}>
             <div className={`${prefixClassName}__content-info-title`}>

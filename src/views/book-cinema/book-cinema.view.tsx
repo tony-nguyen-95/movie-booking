@@ -9,6 +9,7 @@ import { CoreAuthenticationStore, CoreMovieStore } from '../../stores';
 import { convertFormatDate } from '../../stores/store-showtime/orchestrator/fetch-showtime-by-movie-and-cinema.orchestrator';
 import { useHistory } from 'react-router-dom';
 import { CoreTicketStore } from '../../stores/store-\u001Dticket';
+import { DOMAIN } from '../../config';
 
 const prefixClassName = 'book-cinema';
 
@@ -30,10 +31,10 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
   const moviesWithShowtimes = CoreMovieStore.moviesWithShowtimesSelector();
 
   useEffect(() => {
-    if (cinemaSelect && !moviesWithShowtimes) {
+    if (cinemaSelect?.id && !moviesWithShowtimes) {
       CoreMovieStore.fetchMovieByCinemaIdWithShowtimesAction(cinemaSelect.id || '');
     }
-  }, [cinemaSelect, moviesWithShowtimes]);
+  }, [cinemaSelect?.id, moviesWithShowtimes]);
 
   return (
     <Container className={prefixClassName}>
@@ -64,7 +65,7 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
                       }
                     }}
                   >
-                    <img src={`http://localhost:5000/${item.logo}`} alt="logo" />
+                    <img src={`${DOMAIN}${item.logo}`} alt="logo" />
                     <span />
                   </li>
                 ))}
@@ -102,7 +103,7 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
               {moviesWithShowtimes?.map((movie) => (
                 <li key={movie.id} className={`${prefixClassName}__calender-item`}>
                   <div className={`${prefixClassName}__calender-item-header`}>
-                    <img src={`http://localhost:5000/${movie.verticalBanner}`} alt={movie.title} />
+                    <img src={`${DOMAIN}${movie.verticalBanner}`} alt={movie.title} />
                     <div>
                       <h6>{movie.title}</h6>
                       <p>2D Digital</p>

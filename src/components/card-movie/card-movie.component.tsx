@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Card } from 'react-bootstrap';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import { useHistory } from 'react-router-dom';
+import { DOMAIN } from '../../config';
 import { CoreMovieStore } from '../../stores';
 import { convertFormatDate } from '../../stores/store-showtime/orchestrator/fetch-showtime-by-movie-and-cinema.orchestrator';
 import { PlayButton } from '../play-button';
@@ -33,11 +34,7 @@ export const CardMovie: React.FC<ICardMovieProps> = (props) => {
         <PlayButton />
       </div>
 
-      <Card.Img
-        variant="top"
-        src={`http://localhost:5000/${verticalBanner}`}
-        onClick={() => history.push(`/detail/${id}`)}
-      />
+      <Card.Img variant="top" src={`${DOMAIN}${verticalBanner}`} onClick={() => history.push(`/detail/${id}`)} />
       <Card.Body onClick={() => history.push(`/detail/${id}`)} style={{ cursor: 'pointer' }}>
         <Card.Title style={{ marginBottom: '0.5rem' }}>{title}</Card.Title>
 

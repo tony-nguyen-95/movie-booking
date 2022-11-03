@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { ApiError } from '.';
+import { API_ENDPOINT } from '../config';
 import { logOutAction } from '../stores/store-authentication/action';
-
-const API_ENDPOINT = 'http://localhost:5000/api';
 
 const API = axios.create({
   baseURL: `${API_ENDPOINT}`,
