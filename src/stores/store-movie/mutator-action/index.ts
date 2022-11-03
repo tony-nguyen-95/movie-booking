@@ -3,3 +3,4 @@ export * from './update-movies-by-cinema-id.mutator';
 export * from './update-loading-movie.mutator';
 export * from './update-trailer-movie.mutator';
 export * from './update-movies-by-cinema-id-with-showtimes.mutator';
+export * from './update-loading-movie-list.mutator';

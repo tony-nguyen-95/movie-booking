@@ -4,3 +4,4 @@ export * from './loading-movie.selector';
 export * from './selected-movie.selector';
 export * from './trailer-modal-movie.selector';
 export * from './movies-by-cinema-id-with-showtimes.selector';
+export * from './loading-movie-list.selector';

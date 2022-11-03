@@ -58,6 +58,10 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
                     onClick={() => {
                       CoreCineplexStore.updateCineplexSelectedAction(item);
                       CoreCineplexStore.updateCinemaSelectedFromCineplexAction(item?.cinemas[0]);
+
+                      if (cinemaSelect?.id !== item?.cinemas[0].id) {
+                        CoreMovieStore.fetchMovieByCinemaIdWithShowtimesAction(item?.cinemas[0].id || '');
+                      }
                     }}
                   >
                     <img src={`http://localhost:5000/${item.logo}`} alt="logo" />

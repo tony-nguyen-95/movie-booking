@@ -10,7 +10,7 @@ import { CoreMovieStore } from '../../stores';
 const prefixClassName = 'list-movie';
 
 export const ListMovie: React.FC<IListMovieProps> = observer((props) => {
-  const loadingMovie = CoreMovieStore.loadingMovieSelector();
+  const loadingMovie = CoreMovieStore.loadingMovieListSelector();
 
   const listMovie = CoreMovieStore.movieListSelector();
 
