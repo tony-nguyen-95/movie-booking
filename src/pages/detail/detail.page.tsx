@@ -45,14 +45,14 @@ export const Detail: React.FC<IDetailProps> = observer((props) => {
 
       <Container className={`${prefixClassName}__content-wrapper`} style={moviePrimaryColor}>
         <Row>
-          <Col xs={3} className={`${prefixClassName}__content-image`}>
+          <Col md={3} xs={12} className={`${prefixClassName}__content-image`}>
             <div onClick={() => CoreMovieStore.updateTrailerMovieAction(detailMovie)} style={{ zIndex: 500 }}>
               <PlayButton />
             </div>
 
             <Image src={`${DOMAIN}${detailMovie?.verticalBanner}`} width={300} height={450} />
           </Col>
-          <Col xs={9} className={`${prefixClassName}__content-info`}>
+          <Col md={8} xs={12} className={`${prefixClassName}__content-info`}>
             <div className={`${prefixClassName}__content-info-title`}>
               <h2>{detailMovie?.title}</h2>
               <h2>({convertFormatDate(detailMovie?.releaseDate || '').yyyy})</h2>

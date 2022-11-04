@@ -45,7 +45,7 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
       </div>
       <div className={`${prefixClassName}__main`}>
         <Row>
-          <Col md={1} xs={2} className={`${prefixClassName}__col-cinema`}>
+          <Col lg={1} md={2} xs={3} className={`${prefixClassName}__col-cinema`}>
             <ul className={`${prefixClassName}__list-cinema-wrapper`}>
               {listCineplexs &&
                 listCineplexs.map((item) => (
@@ -71,7 +71,7 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
                 ))}
             </ul>
           </Col>
-          <Col md={5} xs={10} className={`${prefixClassName}__col-location`}>
+          <Col lg={5} md={4} xs={9} className={`${prefixClassName}__col-location`}>
             <ul className={`${prefixClassName}__list-location-wrapper`}>
               {cineplexSelect?.cinemas?.map((cinema) => (
                 <li
@@ -97,7 +97,7 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
               ))}
             </ul>
           </Col>
-          <Col md={6} xs={12} className={`${prefixClassName}__col-calender`}>
+          <Col lg={6} md={6} xs={12} className={`${prefixClassName}__col-calender`}>
             <ul className={`${prefixClassName}__list-calender-wrapper`}>
               {loadingMovieShowtimes && <Loading />}
               {moviesWithShowtimes?.map((movie) => (

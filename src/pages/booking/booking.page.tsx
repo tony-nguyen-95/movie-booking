@@ -67,7 +67,7 @@ export const Booking: React.FC<IBookingProps> = observer((props) => {
       <Container className={`${prefixClassName}__main-wrapper`}>
         {loadingBookTickets && <Loading />}
         <Row>
-          <Col xs={3}>
+          <Col lg={3} xs={12}>
             <h4>Booking Tickets</h4>
 
             <ListGroup>
@@ -131,7 +131,7 @@ export const Booking: React.FC<IBookingProps> = observer((props) => {
             </ListGroup>
           </Col>
 
-          <Col xs={9} className={`${prefixClassName}__room-wrapper`}>
+          <Col lg={9} xs={12} className={`${prefixClassName}__room-wrapper`}>
             <h5>
               {infoShowtime?.movieName} - {infoShowtime?.cinemaName} - {infoShowtime?.showtime}
             </h5>
@@ -139,7 +139,7 @@ export const Booking: React.FC<IBookingProps> = observer((props) => {
             <div className={`${prefixClassName}__screen`}>Screen</div>
             <div className={`${prefixClassName}__seats-wrapper`}>
               <div className={`${prefixClassName}__seats-row`}>
-                <div />
+                <div className={`${prefixClassName}__seat-sign`} />
                 {[...Array(10)].map((item, index) => (
                   <div key={index} className={`${prefixClassName}__seat-sign`}>
                     {index + 1}

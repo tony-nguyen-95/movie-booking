@@ -25,15 +25,28 @@
     flex-direction: column;
     padding: 0 2rem;
 
+    @media screen and (max-width: 768px) {
+      padding: 0 0.5rem;
+      top: 15%;
+    }
+
     h1 {
       font-size: 3rem;
       font-weight: 600;
       margin: 0;
+
+      @media screen and (max-width: 768px) {
+        font-size: 2.5rem;
+      }
     }
 
     h3 {
       font-size: 2em;
       font-weight: 500;
+
+      @media screen and (max-width: 768px) {
+        font-size: 1.5rem;
+      }
     }
   }
 
@@ -44,6 +57,11 @@
     transform: translate(-50%, -50%);
     width: 100%;
     padding: 0 2rem;
+
+    @media screen and (max-width: 768px) {
+      padding: 2px !important;
+      top: 60%;
+    }
 
     .row {
       margin: 0 !important;
@@ -57,6 +75,14 @@
           border-bottom: none;
           border-left: none;
           height: 44px;
+          overflow: hidden;
+
+          @media screen and (max-width: 768px) {
+            padding-left: 9px;
+            padding-right: 1rem;
+            height: 46px;
+            background-position: right 0rem center;
+          }
         }
 
         label {
@@ -69,6 +95,10 @@
           border-bottom-left-radius: 40px;
           border-top-left-radius: 40px;
           padding-left: 20px;
+
+          @media screen and (max-width: 768px) {
+            padding-left: 9px;
+          }
         }
       }
 
@@ -77,6 +107,10 @@
           border-bottom-right-radius: 40px;
           border-top-right-radius: 40px;
           background-position: left 80% center;
+
+          @media screen and (max-width: 768px) {
+            background-position: right 0.25rem center;
+          }
         }
       }
 
@@ -95,6 +129,11 @@
         border-radius: 30px;
         top: 0;
         color: #fff;
+
+        @media screen and (max-width: 768px) {
+          top: 100%;
+          width: 100%;
+        }
       }
     }
   }

@@ -55,6 +55,12 @@
     }
   }
 
+  #basic-navbar-nav {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
   &__navbar-right {
     .navbar {
       display: flex;

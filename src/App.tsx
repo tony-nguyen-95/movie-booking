@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import './App.css';
+import './App.scss';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Booking, Detail, HomePage, Login, Register } from './pages';
 import 'bootstrap/dist/css/bootstrap.min.css';

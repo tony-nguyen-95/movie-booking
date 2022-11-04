@@ -17,7 +17,7 @@ export const Footer: React.FC<IFooterProps> = (props) => {
               width="75%"
             />
           </Col>
-          {[...Array(4)].map((item, index) => (
+          {[...Array(3)].map((item, index) => (
             <Col key={index} md={2} className={`${prefixClassName}__footer-part-list-wrapper`}>
               <h4>The Basic</h4>
               <ul>

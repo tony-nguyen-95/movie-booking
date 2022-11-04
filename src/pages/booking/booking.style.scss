@@ -1,4 +1,8 @@
 .booking {
+  .row {
+    --bs-gutter-x: 0 !important;
+  }
+
   &__main-wrapper {
     padding: 2rem 0 !important;
     position: relative;
@@ -104,6 +108,13 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+
+    h5 {
+      @media screen and (max-width: 768px) {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+    }
   }
 
   &__screen {
@@ -132,16 +143,26 @@
     left: -1.2%;
     position: relative;
     width: 80%;
+    overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+      width: 92%;
+    }
   }
 
   &__seats-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
     font-size: 1rem;
     font-weight: 700;
     width: 100%;
+
+    @media screen and (max-width: 768px) {
+      gap: 0.1rem;
+    }
   }
 
   &__seat-sign {
@@ -150,6 +171,11 @@
     border-radius: 4px;
     background: none;
     color: var(--primary);
+    width: 8%;
+
+    @media screen and (max-width: 576px) {
+      padding: 0.25rem 0;
+    }
   }
 
   &__seat {
@@ -159,6 +185,10 @@
     background: none;
     color: var(--primary);
     cursor: pointer;
+
+    @media screen and (max-width: 576px) {
+      padding: 0.25rem 0;
+    }
   }
 
   &__seat-booked {
@@ -167,6 +197,10 @@
     border-radius: 4px;
     background: var(--secondary);
     color: #fff;
+
+    @media screen and (max-width: 576px) {
+      padding: 0.25rem 0;
+    }
   }
 
   &__seat-selected {
@@ -176,5 +210,9 @@
     background: var(--primary);
     color: #fff;
     cursor: pointer;
+
+    @media screen and (max-width: 576px) {
+      padding: 0.25rem 0 !important;
+    }
   }
 }

@@ -12,7 +12,12 @@
   align-items: center;
   justify-content: center;
 
+  .container {
+    --bs-gutter-x: 0 !important;
+  }
+
   .row {
+    --bs-gutter-x: 0 !important;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -44,6 +49,18 @@
       li {
         list-style: none;
         padding: 0;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__footer-logo {
+    img {
+      @media screen and (max-width: 768px) {
+        width: 50%;
       }
     }
   }

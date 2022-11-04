@@ -4,7 +4,11 @@
     position: relative;
   }
   &__pannel-wrapper {
-    padding: 0 2rem !important;
+    padding: 0 0.5rem !important;
+
+    @media screen and (max-width: 576px) {
+      padding: 2rem 1rem !important;
+    }
   }
 
   .list-group-item.active {

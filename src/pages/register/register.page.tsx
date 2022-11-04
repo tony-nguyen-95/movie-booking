@@ -66,38 +66,7 @@ export const Register: React.FC<IRegisterProps> = observer((props) => {
       <Container className={`${prefixClassName}__content-wrapper`}>
         {CoreAuthenticationStore.loadingSignupSelector() && <Loading />}
         <Row>
-          <Col xs={3} className={`${prefixClassName}__pannel-wrapper`}>
-            <ListGroup as="ul">
-              <ListGroup.Item as="li" active>
-                Benefits of being a member
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                <i className="fa-solid fa-check" />
-                Find something to watch on cinema what is near your location.
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                <i className="fa-solid fa-check" />
-                Log the movies and TV shows you have watched.
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                <i className="fa-solid fa-check" />
-                Keep track of your favourite movies and TV shows and get recommendations from them.
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                <i className="fa-solid fa-check" />
-                Build and maintain a personal watchlist.
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                <i className="fa-solid fa-check" />
-                Build custom mixed lists (movies and TV).
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                <i className="fa-solid fa-check" />
-                Contribute to, and improve the information in our database.
-              </ListGroup.Item>
-            </ListGroup>
-          </Col>
-          <Col xs={9}>
+          <Col md={9} xs={12}>
             <h3>Sign up for an account</h3>
             <p>
               Signing up for an account is free and easy. Fill out the form below to get started. JavaScript is required
@@ -166,6 +135,38 @@ export const Register: React.FC<IRegisterProps> = observer((props) => {
                 <NavLink href="/home">Cancel</NavLink>
               </div>
             </Form>
+          </Col>
+
+          <Col md={3} xs={12} className={`${prefixClassName}__pannel-wrapper`}>
+            <ListGroup as="ul">
+              <ListGroup.Item as="li" active>
+                Benefits of being a member
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                <i className="fa-solid fa-check" />
+                Find something to watch on cinema what is near your location.
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                <i className="fa-solid fa-check" />
+                Log the movies and TV shows you have watched.
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                <i className="fa-solid fa-check" />
+                Keep track of your favourite movies and TV shows and get recommendations from them.
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                <i className="fa-solid fa-check" />
+                Build and maintain a personal watchlist.
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                <i className="fa-solid fa-check" />
+                Build custom mixed lists (movies and TV).
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                <i className="fa-solid fa-check" />
+                Contribute to, and improve the information in our database.
+              </ListGroup.Item>
+            </ListGroup>
           </Col>
         </Row>
       </Container>
