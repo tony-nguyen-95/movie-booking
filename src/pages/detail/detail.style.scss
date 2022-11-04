@@ -50,6 +50,12 @@
       top: 50%;
       transform: translateY(-50%) translateX(-50%) scale(1, 1);
     }
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__content-info {
