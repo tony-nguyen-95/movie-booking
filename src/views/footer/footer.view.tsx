@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './footer.style.scss';
 import { IFooterProps } from './footer.type';
+import logoFooter from '../../assets/logo-footer.svg';
 
 const prefixClassName = 'footer';
 
@@ -11,11 +12,7 @@ export const Footer: React.FC<IFooterProps> = (props) => {
       <Container>
         <Row>
           <Col md={2} className={`${prefixClassName}__footer-logo`}>
-            <img
-              src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
-              alt="footer-logo"
-              width="75%"
-            />
+            <img src={logoFooter} alt="footer-logo" width="75%" />
           </Col>
           {[...Array(3)].map((item, index) => (
             <Col key={index} md={2} className={`${prefixClassName}__footer-part-list-wrapper`}>

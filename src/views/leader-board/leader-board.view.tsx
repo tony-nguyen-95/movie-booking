@@ -8,7 +8,7 @@ const prefixClassName = 'leader-board';
 
 export const LeaderBoard: React.FC<ILeaderBoardProps> = (props) => {
   return (
-    <Container className={prefixClassName}>
+    <Container id="people" className={prefixClassName}>
       <div className={`${prefixClassName}__header`}>
         <h3>Leaderboard</h3>
         <div className={`${prefixClassName}__header-annotation`}>

@@ -15,7 +15,7 @@ export const ListMovie: React.FC<IListMovieProps> = observer((props) => {
   const listMovie = CoreMovieStore.movieListSelector();
 
   return (
-    <Container className={prefixClassName}>
+    <Container id="popular" className={prefixClassName}>
       {loadingMovie && <Loading />}
 
       <div className={`${prefixClassName}__header`}>

@@ -37,7 +37,7 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
   }, [cinemaSelect?.id, moviesWithShowtimes]);
 
   return (
-    <Container className={prefixClassName}>
+    <Container id="cinema" className={prefixClassName}>
       {loadingCineplex && <Loading />}
 
       <div className={`${prefixClassName}__header`}>
