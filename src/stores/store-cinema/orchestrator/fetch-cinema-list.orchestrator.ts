@@ -8,11 +8,7 @@ orchestrator(fetchCinemaListAction, async () => {
     const { data: listCinemas } = await fetchListCinemasAPI();
 
     updateCinemaListAction(listCinemas);
-
-    // updateMovieListAction(data);
   } catch (error) {
-    // updateFetchProfileError(error);
-  } finally {
-    // updateIsFetchingBalance(false);
+    return error;
   }
 });

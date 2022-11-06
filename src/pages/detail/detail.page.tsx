@@ -5,6 +5,7 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import { useHistory } from 'react-router-dom';
 import { PlayButton, TrailerModal } from '../../components';
 import { DOMAIN } from '../../config';
+import { IMovieResponse } from '../../models';
 import { CoreMovieStore } from '../../stores';
 import { convertFormatDate } from '../../stores/store-showtime/orchestrator/fetch-showtime-by-movie-and-cinema.orchestrator';
 import { Footer, NavBar } from '../../views';
@@ -18,7 +19,12 @@ export const Detail: React.FC<IDetailProps> = observer((props) => {
 
   const history = useHistory();
 
-  const detailMovie = CoreMovieStore.selectedMovieSelector(parseInt(match.params.id, 10));
+  const listMovie = CoreMovieStore.movieListSelector();
+
+  const detailMovie: IMovieResponse | undefined = useMemo(
+    () => listMovie?.find((movie) => movie.id === parseInt(match.params.id, 10)),
+    [listMovie, match.params.id],
+  );
 
   const colorScore: { path: string; trail: string } = useMemo(() => {
     if (detailMovie?.scorePercent && detailMovie?.scorePercent < 40) {
@@ -33,10 +39,16 @@ export const Detail: React.FC<IDetailProps> = observer((props) => {
   const moviePrimaryColor = { '--movie-primary-color': '31.5, 10.5, 10.5' } as React.CSSProperties;
 
   useEffect(() => {
-    if (!detailMovie || !match.params) {
+    if ((listMovie && !detailMovie) || !match.params) {
       history.push('/home');
     }
-  }, [detailMovie, history, match.params]);
+  }, [detailMovie, history, listMovie, match.params]);
+
+  useEffect(() => {
+    if (!listMovie) {
+      CoreMovieStore.fetchMovieListAction();
+    }
+  }, [listMovie]);
 
   return (
     <div className={prefixClassName}>
