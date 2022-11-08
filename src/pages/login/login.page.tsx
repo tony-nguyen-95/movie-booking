@@ -77,7 +77,7 @@ export const Login: React.FC<ILoginProps> = observer((props) => {
             <Nav.Link style={{ display: 'inline-block', color: 'blue' }} href="/register">
               Click here
             </Nav.Link>{' '}
-            to get started.
+            to get started. Or you can use the test account: Username: <b>123123</b> - Password: <b>123123</b>
           </p>
           <p>If you signed up but didn&apos;t get your verification email, click here to have it resent.</p>
         </div>
