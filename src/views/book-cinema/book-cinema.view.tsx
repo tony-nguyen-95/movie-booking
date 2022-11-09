@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './book-cinema.style.scss';
 import { IBookCinemaProps } from './book-cinema.type';
@@ -10,6 +10,7 @@ import { convertFormatDate } from '../../stores/store-showtime/orchestrator/fetc
 import { useHistory } from 'react-router-dom';
 import { CoreTicketStore } from '../../stores/store-\u001Dticket';
 import { DOMAIN } from '../../config';
+import { ICinemaResponse, ICineplexResponse } from '../../models';
 
 const prefixClassName = 'book-cinema';
 
@@ -29,6 +30,29 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
   const loadingMovieShowtimes = CoreMovieStore.loadingMovieSelector();
 
   const moviesWithShowtimes = CoreMovieStore.moviesWithShowtimesSelector();
+
+  const handleChangeCineplex = useCallback(
+    (cineplex: ICineplexResponse | undefined) => {
+      CoreCineplexStore.updateCineplexSelectedAction(cineplex);
+      CoreCineplexStore.updateCinemaSelectedFromCineplexAction(cineplex?.cinemas[0]);
+
+      if (cinemaSelect?.id !== cineplex?.cinemas[0].id) {
+        CoreMovieStore.fetchMovieByCinemaIdWithShowtimesAction(cineplex?.cinemas[0].id || '');
+      }
+    },
+    [cinemaSelect?.id],
+  );
+
+  const handleChangeCinema = useCallback(
+    (cinema: ICinemaResponse | undefined) => {
+      CoreCineplexStore.updateCinemaSelectedFromCineplexAction(cinema);
+
+      if (cinemaSelect?.id !== cinema?.id) {
+        CoreMovieStore.fetchMovieByCinemaIdWithShowtimesAction(cinema?.id || '');
+      }
+    },
+    [cinemaSelect?.id],
+  );
 
   useEffect(() => {
     if (cinemaSelect?.id && !moviesWithShowtimes) {
@@ -56,14 +80,7 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
                         ? `${prefixClassName}__cinema-item-selected`
                         : `${prefixClassName}__cinema-item`
                     }
-                    onClick={() => {
-                      CoreCineplexStore.updateCineplexSelectedAction(item);
-                      CoreCineplexStore.updateCinemaSelectedFromCineplexAction(item?.cinemas[0]);
-
-                      if (cinemaSelect?.id !== item?.cinemas[0].id) {
-                        CoreMovieStore.fetchMovieByCinemaIdWithShowtimesAction(item?.cinemas[0].id || '');
-                      }
-                    }}
+                    onClick={() => handleChangeCineplex(item)}
                   >
                     <img src={`${DOMAIN}${item.logo}`} alt="logo" />
                     <span />
@@ -81,13 +98,7 @@ export const BookCinema: React.FC<IBookCinemaProps> = observer((props) => {
                       ? `${prefixClassName}__location-item-selected`
                       : `${prefixClassName}__location-item`
                   }
-                  onClick={() => {
-                    CoreCineplexStore.updateCinemaSelectedFromCineplexAction(cinema);
-
-                    if (cinemaSelect?.id !== cinema.id) {
-                      CoreMovieStore.fetchMovieByCinemaIdWithShowtimesAction(cinema.id || '');
-                    }
-                  }}
+                  onClick={() => handleChangeCinema(cinema)}
                 >
                   <div>
                     <h4>{cinema.cinemaName}</h4>
